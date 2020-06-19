@@ -1,5 +1,6 @@
 const faker = require("faker");
-// const Item = require('./index.js');
+
+
 
 gen = () => {
   //Create a results array for each entry
