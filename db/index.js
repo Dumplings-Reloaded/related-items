@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
-const mock = require("./generator.js");
-const myDB = "mongodb://localhost/alotest"; //Database name
+const myDB = "mongodb://localhost/alotest1"; //Database name
 //Connect to the database
 mongoose.connect(myDB, { useNewUrlParser: true }, () => {
   console.log("Database connected!");
@@ -20,22 +19,5 @@ const ItemSchema = new Schema({
 //Create a model based off the schema
 const Item = mongoose.model("RelatedItem", ItemSchema); //Collection name
 
-//Seed the data into the db
-function seed(data) {
-  relatedItems = [];
-  for (var i = 0; i < data.length; i++) {
-    let entry = new Item(data[i]);
-    relatedItems.push(entry);
-  }
-
-  Item.insertMany(relatedItems, (err, results) => {
-    if (err) {
-      console.error(err);
-    } else {
-      console.log("Successful seeding");
-    }
-  });
-}
-
-seed(mock);
+module.exports = Item;
 
