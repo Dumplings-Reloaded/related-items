@@ -1,7 +1,5 @@
 const faker = require("faker");
 
-
-
 gen = () => {
   //Create a results array for each entry
   results = [];
