@@ -1,5 +1,5 @@
 const mongoose = require("mongoose");
-const myDB = "mongodb://localhost/alotest1"; //Database name
+const myDB = "mongodb://localhost/alotest3"; //Database name
 //Connect to the database
 mongoose.connect(myDB, { useNewUrlParser: true }, () => {
   console.log("Database connected!");

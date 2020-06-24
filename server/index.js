@@ -8,7 +8,7 @@ const Item = require('../db/index.js');
 const port = 8080;
 const app = express();
 
-const myDB = "mongodb://localhost/alotest1"; //Database name
+const myDB = "mongodb://localhost/alotest3"; //Database name
 
 mongoose.connect(myDB, { useNewUrlParser: true }, () => {
   console.log("Database connected!");

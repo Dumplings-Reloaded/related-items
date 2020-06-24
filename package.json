@@ -8,9 +8,11 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "seed": "node db/index.js"
+    "seed": "node db/s3test.js",
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
+    "aws-sdk": "^2.700.0",
     "axios": "^0.19.2",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
