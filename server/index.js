@@ -21,16 +21,17 @@ app.use(cors());
 app.listen(port, () => {console.log('Server running on localhost:', port)});
 
 app.get('/related', (req, res) => {
-  console.log('Getting books!')
+  console.log('Getting items!')
   Item.find({})
     .exec((err, items) => {
       if (err) {
         console.error(err)
       } else {
-        console.log(items);
-        res.json(items);
+        res.send(items);
       }
     })
 })
 
-app.get('/', (req, res) => {res.send('Hello from server!')})
+// app.get('/', (req, res) => {res.send('Hello from server!')})
+
+app.use("/", express.static(path.join(__dirname, "../client/dist")));
