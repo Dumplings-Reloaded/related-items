@@ -64,8 +64,12 @@ class App extends React.Component {
       nextArrow: <SampleNextArrow />
     };
     return (
-      <div>
-        <Slider ref={c => (this.slider = c)} {...settings}>
+      <div className="related-comp">
+        <div className="related-title">
+          <h4>GET THE FULL LOOK</h4>
+          &nbsp;
+        </div>
+        <Slider ref={(c) => (this.slider = c)} {...settings}>
           {this.state.products.map((product, index) => (
             <ItemList product={product} index={index} key={index} />
           ))}
