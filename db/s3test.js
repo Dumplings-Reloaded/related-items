@@ -53,6 +53,5 @@ const faker = require('faker');
     console.error(e);
   }
 
-  debugger;
 })();
 

@@ -31,6 +31,8 @@ class App extends React.Component {
 
     this.state = {
       products: [],
+      numOfItems: Math.random() * (20 - 12) + 12,
+      startingPoint: Math.random() * (325 - 1) + 1
     };
     this.getProducts = this.getProducts.bind(this);
   }
@@ -56,7 +58,7 @@ class App extends React.Component {
 
     const settings = {
       arrows: true,
-      infinite: true,
+      infinite: false,
       speed: 500,
       slidesToShow: 5,
       slidesToScroll: 5,
@@ -67,10 +69,10 @@ class App extends React.Component {
       <div className="related-comp">
         <div className="related-title">
           <h4>GET THE FULL LOOK</h4>
-          &nbsp;
+
         </div>
         <Slider ref={(c) => (this.slider = c)} {...settings}>
-          {this.state.products.map((product, index) => (
+          {this.state.products.slice(this.state.startingPoint, this.state.startingPoint + this.state.numOfItems).map((product, index) => (
             <ItemList product={product} index={index} key={index} />
           ))}
         </Slider>
