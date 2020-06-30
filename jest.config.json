@@ -1,0 +1,7 @@
+{
+  "setupFilesAfterEnv": ["<rootDir>/spec/setup.js"],
+  "verbose": true,
+  "transform": {
+     "^.+\\.jsx?$": "babel-jest"
+    }
+}

@@ -4,10 +4,10 @@
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - Nav Bar - https://github.com/goat-yoga/rizwan-service-actual
+  - Reviews - https://github.com/goat-yoga/russell-service
+  - Product Display - https://github.com/goat-yoga/kimberly-service
+  - Proxy -
 
 ## Table of Contents
 
@@ -17,7 +17,7 @@
 
 ## Usage
 
-> Some usage instructions
+> Welcome to the Alo Yoga mock related products module. To begin using, navigate to the repository's main directory, run the command 'npm install'. After installing all the dependencies, in a news terminals run the commands 'npm run seed', 'npm start' and 'npm react-dev'. These commands will seed the database, start the server and transpile the jsx into vanilla js.
 
 ## Requirements
 
