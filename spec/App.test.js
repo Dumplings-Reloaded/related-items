@@ -7,5 +7,5 @@ describe('App', () => {
     const wrapper = shallow(<App />);
     const text = wrapper.find('div div');
     expect(text.text()).toBe('GET THE FULL LOOK');
-  })
+  });
 })

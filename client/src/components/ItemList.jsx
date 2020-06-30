@@ -19,12 +19,12 @@ class ItemList extends React.Component {
   render() {
     return (
       <div className="carousel-slide">
-        <img src={this.props.product.link}></img>
-        {this.props.product.name} -&nbsp; {this.props.product.cat}
-        <br></br>
+        <img className="carousel-link" src={this.props.product.link}></img>
+        <div className="carousel-name">{this.props.product.name} -</div>
+        <div className="carousel-cat">{this.props.product.cat}</div>
         <br></br>
 
-        <div className="product-price">${this.props.product.price}</div>
+        <div className="carousel-price">${this.props.product.price}</div>
       </div>
     );
   }
