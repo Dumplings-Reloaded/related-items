@@ -43,7 +43,7 @@ class App extends React.Component {
 
   getProducts() {
     axios
-      .get("/related")
+      .get("http://localhost:8080/related")
       .then((results) => {
         this.setState({
           products: results.data,
@@ -66,16 +66,22 @@ class App extends React.Component {
       nextArrow: <SampleNextArrow />
     };
     return (
-      <div className="related-comp">
-        <div className="related-title">
-          <h4>GET THE FULL LOOK</h4>
-
+      <div className="related-items">
+        <div className="related-comp">
+          <div className="related-title">
+            <h4>GET THE FULL LOOK</h4>
+          </div>
+          <Slider ref={(c) => (this.slider = c)} {...settings}>
+            {this.state.products
+              .slice(
+                this.state.startingPoint,
+                this.state.startingPoint + this.state.numOfItems
+              )
+              .map((product, index) => (
+                <ItemList product={product} index={index} key={index} />
+              ))}
+          </Slider>
         </div>
-        <Slider ref={(c) => (this.slider = c)} {...settings}>
-          {this.state.products.slice(this.state.startingPoint, this.state.startingPoint + this.state.numOfItems).map((product, index) => (
-            <ItemList product={product} index={index} key={index} />
-          ))}
-        </Slider>
       </div>
     );
   }
