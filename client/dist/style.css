@@ -1,0 +1,46 @@
+
+.slick-prev {
+  z-index: 0;
+  content: url(https://cdn.shopify.com/s/files/1/2185/2813/files/pixlee-widget-left-arrow.svg?v=1586561651);
+}
+.slick-next {
+  z-index: 0;
+  content: url(https://cdn.shopify.com/s/files/1/2185/2813/files/pixlee-widget-right-arrow.svg?v=1586561651);
+}
+
+.carousel-slide {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.carousel-price {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  color: #605e5c;
+  width: 100%;
+}
+
+.related-title {
+    font-family: Helvetica, Arial, sans-serif;
+    width: 100%;
+    color: black;
+}
+
+.related-comp {
+  width: 1400px;
+  height: 426px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 50px;
+}
+
+.carousel-link {
+  width: 292px;
+  height: 438px;
+  padding-bottom: 12px;
+}
+
+.carousel-name, .carousel-cat {
+  color: black;
+}
