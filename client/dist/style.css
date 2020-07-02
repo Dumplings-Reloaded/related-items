@@ -1,4 +1,3 @@
-
 .slick-prev {
   z-index: 0;
   content: url(https://cdn.shopify.com/s/files/1/2185/2813/files/pixlee-widget-left-arrow.svg?v=1586561651);
@@ -33,6 +32,7 @@
   margin-right: auto;
   margin-left: auto;
   padding-top: 50px;
+  padding-bottom: 200px;
 }
 
 .carousel-link {
