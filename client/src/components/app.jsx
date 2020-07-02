@@ -69,7 +69,7 @@ class App extends React.Component {
       <div className="related-items">
       <div className="related-comp">
         <div className="related-title">
-          <h4>GET THE FULL LOOK</h4>
+          GET THE FULL LOOK
 
         </div>
         <Slider ref={(c) => (this.slider = c)} {...settings}>
