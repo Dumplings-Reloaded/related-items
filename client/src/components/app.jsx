@@ -43,7 +43,7 @@ class App extends React.Component {
 
   getProducts() {
     axios
-      .get("http://localhost:8080/related")
+      .get("http://localhost:8090/related")
       .then((results) => {
         this.setState({
           products: results.data,

@@ -5,7 +5,7 @@ const cors = require('cors');
 const path = require('path');
 const mongoose = require('mongoose');
 const Item = require('../db/index.js');
-const port = 8080;
+const port = 8090;
 const app = express();
 
 const myDB = "mongodb://localhost/alotest3"; //Database name
