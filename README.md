@@ -1,4 +1,4 @@
-# Project Name
+# Front-end Capstone - Related Items Module
 
 > Project description
 
