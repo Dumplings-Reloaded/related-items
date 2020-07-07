@@ -7,7 +7,7 @@
   - Nav Bar - https://github.com/goat-yoga/rizwan-service-actual
   - Reviews - https://github.com/goat-yoga/russell-service
   - Product Display - https://github.com/goat-yoga/kimberly-service
-  - Proxy -
+  - Proxy - https://github.com/goat-yoga/wilson_proxy
 
 ## Table of Contents
 
