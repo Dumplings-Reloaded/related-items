@@ -41,38 +41,37 @@ app.post('/related', (req, res) => {
     'img': req.body.img,
     'cat': req.body.cat,
     'link': req.body.link,
-  }, (err, results) => {
-    if (err) {
-      console.log(err);
-    } else {
-      res.send(results);
-    }
-  });
+  })
+    .then((results) => {
+      res.status(201).send(results);
+    })
+    .catch((err) => {
+      res.status(401).send(err);
+    });
 });
 
 app.put('/related/:id', (req, res) => {
   console.log('Updating items!');
-  Item.updateOne(
-    {_id: req.params.id},
-    {$set: {'name': req.body.name}},
-    (err, results) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(results);
-      }
+  Item.updateOne({_id: req.params.id}, {$set: {'name': req.body.name}})
+    .exec()
+    .then((results) => {
+      res.status(202).send(results);
+    })
+    .catch((err) => {
+      res.status(402).send(err);
     });
 });
 
 app.delete('/related/:id', (req, res) => {
   console.log('Deleting item!');
-  Item.deleteOne({_id: req.params.id},
-    (err, results) => {
-      if (err) {
-        console.log(err);
-      } else {
-        res.send(results);
-      }
+  Item.deleteOne({_id: req.params.id})
+    .exec() //returns a promise
+    .then((results) => {
+      res.status(204).send(results);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(404).send(err);
     });
 });
 
