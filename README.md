@@ -1,6 +1,7 @@
-# Front-end Capstone - Related Items Module
+# Front-end Capstone - Related Items Module ==> SDCapstone
 
 > Project description
+Related Items module created by Wilson for FEC then taken over by Koboh for SDC.
 
 ## Related Projects
 
@@ -37,3 +38,62 @@ npm install -g webpack
 npm install
 ```
 
+#### CRUD OPERATIONS
+CREATE
+app.post('/related', (req, res) => {
+  console.log('Posting items!', req.body);
+  Item.create({
+    'name': req.body.name,
+    'price': req.body.price,
+    'img': req.body.img,
+    'cat': req.body.cat,
+    'link': req.body.link,
+  }, (err, results) => {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(results);
+    }
+  });
+});
+
+READ
+app.get('/related', (req, res) => {
+  console.log('Getting items!');
+  Item.find({})
+    .exec((err, items) => {
+      if (err) {
+        console.error(err);
+      } else {
+        res.send(items);
+      }
+    });
+});
+
+UPDATE
+app.put('/related/:id', (req, res) => {
+  console.log('Updating items!');
+  Item.updateOne(
+    {_id: req.params.id},
+    {$set: {'name': req.body.name}},
+    (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(results);
+      }
+    });
+});
+
+DELETE
+app.delete('/related/:id', (req, res) => {
+  console.log('Deleting item!');
+  Item.deleteOne({_id: req.params.id},
+    (err, results) => {
+      if (err) {
+        console.log(err);
+      } else {
+        res.send(results);
+      }
+    });
+});

@@ -15,19 +15,19 @@ const faker = require('faker');
 
       const s3 = new aws.S3();
       const response = await s3.listObjectsV2({
-        Bucket: 'aloyoga-mock-data'
+        Bucket: 'navbar-mock-images'
       }).promise()
 
       .then(function(data) {
 
         relatedItems = [];
-        for (var i = 1; i < 346; i++) {
+        for (var i = 0; i < 100; i++) {
           const name = faker.commerce.productName();
           const price = faker.commerce.price();
           const img = faker.image.fashion();
           const cat = faker.commerce.department();
           const link =
-            "http://aloyoga-mock-data.s3-us-west-1.amazonaws.com/" +
+            "https://navbar-mock-images.s3-us-west-1.amazonaws.com/" +
             data.Contents[i].Key;
           const entry = new Item({
             name: name,

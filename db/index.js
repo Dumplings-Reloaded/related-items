@@ -1,8 +1,8 @@
-const mongoose = require("mongoose");
-const myDB = "mongodb://localhost/alotest3"; //Database name
+const mongoose = require('mongoose');
+const myDB = 'mongodb://localhost/alotest3'; //Database name
 //Connect to the database
 mongoose.connect(myDB, { useNewUrlParser: true }, () => {
-  console.log("Database connected!");
+  console.log('Database connected!');
 });
 //Use for created new schemas
 const Schema = mongoose.Schema;
@@ -17,7 +17,7 @@ const ItemSchema = new Schema({
 });
 
 //Create a model based off the schema
-const Item = mongoose.model("RelatedItem", ItemSchema); //Collection name
+const Item = mongoose.model('RelatedItem', ItemSchema); //Collection name
 
 module.exports = Item;
 
