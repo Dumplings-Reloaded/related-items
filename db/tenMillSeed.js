@@ -1,9 +1,9 @@
-const Item = require('./index.js');
+// const Item = require('./index.js');
 // const aws = require('aws-sdk');
 // const config = require('../config/config.json');
 const faker = require('faker');
 const fs = require('fs');
-const csvtojson = require('csvtojson');
+// const csvtojson = require('csvtojson');
 
 //creates a csv file and streams to the file until end()
 const relatedItems = fs.createWriteStream('./relatedItems.csv');
@@ -51,15 +51,18 @@ var writeTenMillItems = function(writer, encoding, callback) {
 //invoke the TenMill generator
 writeTenMillItems(relatedItems, 'utf-8', () => {
   relatedItems.end();
-  csvtojson()
-    .fromFile('./relatedItems.csv')
-    .then(csvData => {
-      Item.insertMany(csvData)
-        .then((results) => {
-          console.log('successful seeding to MongoDB');
-        })
-        .catch((err) => {
-          console.log('unsuccessful seeding to MongoDB', err);
-        });
-    });
+  console.log('10M generating done');
 });
+
+// csvtojson()
+//   .fromFile('./relatedItems.csv')
+//   .then(csvData => {
+//     console.log(csvData);
+//     Item.insertMany(csvData)
+//       .then((results) => {
+//         console.log('successful seeding to MongoDB');
+//       })
+//       .catch((err) => {
+//         console.log('unsuccessful seeding to MongoDB', err);
+//       });
+//   });
