@@ -3,26 +3,37 @@ const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const cors = require('cors');
 const path = require('path');
+const router = require('./router.js');
+
 const mongoose = require('mongoose');
 const Item = require('../db/index.js');
 const port = 8090;
 const app = express();
 
-const myDB = 'mongodb://localhost/alotest3'; //Database name
-//DB CONNECTION
-mongoose.connect(myDB, { useNewUrlParser: true }, () => {
-  console.log('Database connected!');
-});
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(morgan('dev'));
 app.use(cors());
+//MONGO CONNECTION
+    // const myDB = 'mongodb://localhost/alotest3'; //Database name
+    // //DB CONNECTION
+    // mongoose.connect(myDB, { useNewUrlParser: true }, () => {
+    //   console.log('Database connected!');
+    // });
+
+//POSTGRES ROUTER
+//create a router to a new endpoint
+//create a controller/model
+
+
+app.use('/related/pg', router);
 app.listen(port, () => { console.log('Server running on localhost:', `http://localhost:${port}`); });
 
-app.get('/related', (req, res) => {
+
+
+app.get('/related/:id', (req, res) => {
   console.log('Getting items!');
-  Item.find({})
+  Item.find({_id=req.params._id})
     .exec((err, items) => {
       if (err) {
         console.error(err);
