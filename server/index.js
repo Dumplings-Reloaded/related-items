@@ -31,9 +31,9 @@ app.listen(port, () => { console.log('Server running on localhost:', `http://loc
 
 
 
-app.get('/related/:id', (req, res) => {
+app.get('/related', (req, res) => {
   console.log('Getting items!');
-  Item.find({_id=req.params._id})
+  Item.find({})
     .exec((err, items) => {
       if (err) {
         console.error(err);

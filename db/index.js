@@ -20,4 +20,3 @@ const ItemSchema = new Schema({
 const Item = mongoose.model('RelatedItem', ItemSchema); //Collection name
 
 module.exports = Item;
-
