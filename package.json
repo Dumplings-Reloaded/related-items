@@ -11,7 +11,10 @@
     "seed": "node db/s3test.js",
     "start": "nodemon server/index.js",
     "react-dev": "webpack -d --watch",
-    "test": "jest --config ./jest.config.json"
+    "test": "jest --config ./jest.config.json",
+    "dataGen": "node ./db/tenMillSeed.js",
+    "mongoSeed": "mongoimport --db=alotest3 --collection=relateditems --type=csv --headerline --file=/Users/kobohkosaka/Desktop/HR/wilson_service/relatedItems1.csv",
+    "pgSeed": "psql postgres < ./dbPostgres/schema.sql"
   },
   "dependencies": {
     "aws-sdk": "^2.700.0",
@@ -27,6 +30,7 @@
     "jquery": "^3.5.1",
     "mongoose": "^5.9.19",
     "morgan": "^1.10.0",
+    "newrelic": "^6.11.0",
     "nodemon": "^2.0.4",
     "path": "^0.12.7",
     "pg": "^8.3.0",

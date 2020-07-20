@@ -1,3 +1,4 @@
+require('newrelic');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
@@ -6,6 +7,7 @@ const path = require('path');
 const router = require('./router.js');
 
 const mongoose = require('mongoose');
+const ObjectID = require('mongodb').ObjectID;
 const Item = require('../db/index.js');
 const port = 8090;
 const app = express();
@@ -15,11 +17,11 @@ app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(morgan('dev'));
 app.use(cors());
 //MONGO CONNECTION
-    // const myDB = 'mongodb://localhost/alotest3'; //Database name
-    // //DB CONNECTION
-    // mongoose.connect(myDB, { useNewUrlParser: true }, () => {
-    //   console.log('Database connected!');
-    // });
+const myDB = 'mongodb://localhost/alotest3'; //Database name
+//DB CONNECTION
+mongoose.connect(myDB, { useNewUrlParser: true }, () => {
+  console.log('Database connected!');
+});
 
 //POSTGRES ROUTER
 //create a router to a new endpoint
@@ -31,15 +33,18 @@ app.listen(port, () => { console.log('Server running on localhost:', `http://loc
 
 
 
-app.get('/related', (req, res) => {
+app.get('/related/:id', (req, res) => {
   console.log('Getting items!');
-  Item.find({})
-    .exec((err, items) => {
-      if (err) {
-        console.error(err);
-      } else {
-        res.send(items);
-      }
+  console.log(req.params.id);
+  Item.find({id: { $gte: req.params.id}}).limit(300)
+    .exec()
+    .then((results) => {
+      console.log(results);
+      res.status(200).send(results);
+    })
+    .catch((err) => {
+      console.log(err);
+      res.status(400).send(err);
     });
 });
 
@@ -75,7 +80,7 @@ app.put('/related/:id', (req, res) => {
 
 app.delete('/related/:id', (req, res) => {
   console.log('Deleting item!');
-  Item.deleteOne({_id: req.params.id})
+  Item.deleteOne({id: req.params.id})
     .exec() //returns a promise
     .then((results) => {
       res.status(204).send(results);

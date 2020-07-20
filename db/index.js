@@ -9,6 +9,7 @@ const Schema = mongoose.Schema;
 
 //Schema
 const ItemSchema = new Schema({
+  id: Number,
   name: String,
   price: Number,
   img: String,
@@ -17,6 +18,6 @@ const ItemSchema = new Schema({
 });
 
 //Create a model based off the schema
-const Item = mongoose.model('RelatedItem', ItemSchema); //Collection name
+const Item = mongoose.model('RelatedItem', ItemSchema, 'relateditems'); //Collection name
 
 module.exports = Item;

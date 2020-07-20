@@ -2,11 +2,13 @@ const db = require('./index.js');
 
 module.exports = {
   get: (params, callback) => {
-    var queryString = `SELECT * FROM relateditems WHERE id=${params.id}`;
+    var queryString = `SELECT * FROM relateditems WHERE id>=${params.id} AND id<(${params.id} + 300)`;
     db.query(queryString, (err, res) => {
       if (err) {
+        console.log(err)
         callback(err);
       } else {
+        console.log(res.rows)
         callback(null, res.rows);
       }
     });

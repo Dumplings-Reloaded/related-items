@@ -1,19 +1,20 @@
-// const Item = require('./index.js');
+const Item = require('./index.js');
 // const aws = require('aws-sdk');
 // const config = require('../config/config.json');
 const faker = require('faker');
 const fs = require('fs');
-// const csvtojson = require('csvtojson');
+const csvtojson = require('csvtojson');
 
 //creates a csv file and streams to the file until end()
 const relatedItems = fs.createWriteStream('./relatedItems.csv');
 
 //writes headers to the csv file
-relatedItems.write('name,price,img,cat,link\n', 'utf8');
+relatedItems.write('id,name,price,img,cat,link\n', 'utf8');
 
 
 var writeTenMillItems = function(writer, encoding, callback) {
   let i = 1e7;
+  let id = 0;
   var write = function() {
     let ok = true;
 
@@ -21,12 +22,13 @@ var writeTenMillItems = function(writer, encoding, callback) {
     //basiically, do (this), while (condition is met)
     do {
       i--;
+      id++;
       const name = faker.commerce.productName();
       const price = faker.commerce.price();
       const img = faker.image.fashion();
       const cat = faker.commerce.department();
       const link = faker.image.fashion();
-      const data = `${name},${price},${img},${cat},${link}\n`;
+      const data = `${id},${name},${price},${img},${cat},${link}\n`;
 
       //last time
       if (i === 0) {
@@ -52,17 +54,16 @@ var writeTenMillItems = function(writer, encoding, callback) {
 writeTenMillItems(relatedItems, 'utf-8', () => {
   relatedItems.end();
   console.log('10M generating done');
-});
-
-// csvtojson()
-//   .fromFile('./relatedItems.csv')
-//   .then(csvData => {
-//     console.log(csvData);
-//     Item.insertMany(csvData)
-//       .then((results) => {
-//         console.log('successful seeding to MongoDB');
-//       })
-//       .catch((err) => {
-//         console.log('unsuccessful seeding to MongoDB', err);
-//       });
-//   });
+//   csvtojson()
+//     .fromFile('./relatedItems1.csv')
+//     .then(csvData => {
+//       console.log(csvData);
+//       Item.insertMany(csvData)
+//         .then((results) => {
+//           console.log('successful seeding to MongoDB');
+//         })
+//         .catch((err) => {
+//           console.log('unsuccessful seeding to MongoDB', err);
+//         });
+//     });
+// });
