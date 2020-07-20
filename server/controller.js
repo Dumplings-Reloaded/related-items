@@ -20,6 +20,7 @@ const controller = {
     });
   },
   post: (req, res) => {
+    console.log(req.body)
     db.post(req.body, (err, results) => {
       if (err) {
         res.status(401).send(err);

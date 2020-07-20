@@ -44,7 +44,7 @@ class App extends React.Component {
   getProducts() {
     var randomInt = Math.floor(Math.random() * 10000000);
     axios
-      .get(`http://localhost:8090/related/${randomInt}`)
+      .get(`http://localhost:8090/related/pg/${randomInt}`)
       .then((results) => {
         this.setState({
           products: results.data,

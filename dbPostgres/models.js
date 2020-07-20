@@ -3,6 +3,7 @@ const db = require('./index.js');
 module.exports = {
   get: (params, callback) => {
     var queryString = `SELECT * FROM relateditems WHERE id>=${params.id} AND id<(${params.id} + 300)`;
+    // var queryString = `SELECT * FROM relateditems WHERE id=${params.id}`
     db.query(queryString, (err, res) => {
       if (err) {
         console.log(err)
@@ -24,9 +25,10 @@ module.exports = {
     });
   },
   post: (body, callback) => {
-    var queryString = `INSERT INTO relateditems (name, price, img, cat, link) VALUES ('${body.name}', ${body.price}, '${body.img}', '${body.cat}', '${body.link}')`;
+    var queryString = `INSERT INTO relateditems (id, name, price, img, cat, link) VALUES (${body.id}, '${body.name}', ${body.price}, '${body.img}', '${body.cat}', '${body.link}')`;
     db.query(queryString, (err, res) => {
       if (err) {
+        console.log(err)
         callback(err);
       } else {
         callback(null, res);
