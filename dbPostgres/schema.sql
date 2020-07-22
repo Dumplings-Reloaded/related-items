@@ -13,4 +13,4 @@ CREATE TABLE relatedItems (
 );
 
 
-COPY relatedItems ( id,name,price,img,cat,link ) FROM '/Users/kobohkosaka/Desktop/HR/wilson_service/relatedItems.csv' WITH DELIMITER AS  ',' CSV HEADER;
+COPY relatedItems ( id,name,price,img,cat,link ) FROM './relatedItems.csv' WITH DELIMITER AS  ',' CSV HEADER;
