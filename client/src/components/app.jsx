@@ -32,7 +32,7 @@ class App extends React.Component {
     this.state = {
       products: [],
       numOfItems: Math.random() * (20 - 12) + 12,
-      startingPoint: Math.random() * (325 - 1) + 1
+      startingPoint: 0
     };
     this.getProducts = this.getProducts.bind(this);
   }

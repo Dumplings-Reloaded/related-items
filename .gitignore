@@ -8,6 +8,8 @@ node_modules/
 config/
 newrelic.js
 
+*.pem
+
 pids
 *.pid
 logs

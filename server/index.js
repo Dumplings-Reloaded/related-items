@@ -35,7 +35,6 @@ app.listen(port, () => { console.log('Server running on localhost:', `http://loc
 
 app.get('/related/:id', (req, res) => {
   console.log('Getting items!');
-  console.log(req.params.id);
   Item.find({id: { $gte: req.params.id}}).limit(300)
     .exec()
     .then((results) => {
