@@ -66,4 +66,4 @@ writeTenMillItems(relatedItems, 'utf-8', () => {
 //           console.log('unsuccessful seeding to MongoDB', err);
 //         });
 //     });
-// });
+});
