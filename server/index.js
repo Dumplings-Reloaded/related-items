@@ -6,22 +6,25 @@ const cors = require('cors');
 const path = require('path');
 const router = require('./router.js');
 
-const mongoose = require('mongoose');
-const ObjectID = require('mongodb').ObjectID;
-const Item = require('../db/index.js');
-const port = 8090;
+//const mongoose = require('mongoose');
+//const ObjectID = require('mongodb').ObjectID;
+//const Item = require('../db/index.js');
+const port = 80;
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded( {extended: true} ));
 app.use(morgan('dev'));
 app.use(cors());
+app.get('/loaderio-7bd2b58d1b2c07098ac1aafd42e00f5e/', (req, res)=> {
+res.send('loaderio-7bd2b58d1b2c07098ac1aafd42e00f5e')
+})
 //MONGO CONNECTION
-const myDB = 'mongodb://localhost/alotest3'; //Database name
+//const myDB = 'mongodb://localhost/alotest3'; //Database name
 //DB CONNECTION
-mongoose.connect(myDB, { useNewUrlParser: true }, () => {
-  console.log('Database connected!');
-});
+//mongoose.connect(myDB, { useNewUrlParser: true }, () => {
+//  console.log('Database connected!');
+//});
 
 //POSTGRES ROUTER
 //create a router to a new endpoint
